@@ -96,6 +96,8 @@ class AppServices {
           "contact" : "",
           "address" : ""
         });
+
+
         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder:  (context) => const MainPage()), (route) => false);
       }else{
         if (kDebugMode) {
@@ -103,6 +105,8 @@ class AppServices {
         }
       }
     }on FirebaseAuthException catch (e) {
+
+
       if (e.code == 'weak-password') {
         if (kDebugMode) {
           print('The password provided is too weak.');
