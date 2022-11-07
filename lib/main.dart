@@ -9,9 +9,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: appColor,
-      systemNavigationBarIconBrightness: Brightness.dark
+    systemNavigationBarColor: Colors.white, // navigation bar color
+    statusBarColor: Colors.white, // status bar color
+    statusBarIconBrightness: Brightness.dark, // status bar icons' color
+    systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icons' color
   ));
+
   runApp(const MyApp());
 
 }
@@ -27,6 +30,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          appBarTheme: Theme.of(context)
+              .appBarTheme
+              .copyWith(brightness: Brightness.dark),
         ),
         home: const SplashScreen(),
     );

@@ -57,7 +57,7 @@ class _AdminLoginState extends State<AdminLogin> {
                           height: 10,
                         ),
                          Text("Admin Login" , style: GoogleFonts.poppins(
-                          fontSize: 25,
+                          fontSize: 30,
                            fontWeight: FontWeight.bold,
                         )),
                         const SizedBox(

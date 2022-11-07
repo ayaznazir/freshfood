@@ -129,6 +129,7 @@ class _CartScreenState extends State<CartScreen> {
                                                   height: screenSize.height * 0.17,
                                                   decoration:  BoxDecoration(
                                                       color: Colors.white,
+                                                    borderRadius: BorderRadius.circular(15),
                                                     image: DecorationImage(image: NetworkImage(snapshot.data!.docs[index]["cartImage"]),
                                                     fit: BoxFit.cover)
                                                   ),
@@ -140,16 +141,18 @@ class _CartScreenState extends State<CartScreen> {
                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                   children: [
                                                     const SizedBox(
-                                                      height: 15,
-                                                    ),
-                                                     Text(snapshot.data!.docs[index]["cartName"], style: TextStyle(
-                                                        color: Colors.black, fontWeight: FontWeight.bold,
-                                                        fontSize: 20
-                                                    ),),
-                                                    const SizedBox(
                                                       height: 10,
                                                     ),
-                                                    Text(snapshot.data!.docs[index]["time"], style: TextStyle(color: Colors.grey, fontSize: 16),),
+                                                     Text(snapshot.data!.docs[index]["cartName"], style: GoogleFonts.poppins(
+                                                       fontWeight: FontWeight.bold,
+                                                       color: Colors.black,
+                                                       fontSize: 20
+                                                     )),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Text(snapshot.data!.docs[index]["time"], style: TextStyle(
+                                                      color: Colors.grey , fontSize: 15,),),
                                                     const SizedBox(
                                                       height: 10,
                                                     ),
@@ -196,11 +199,11 @@ class _CartScreenState extends State<CartScreen> {
                                                           width: 5,
                                                         ),
                                                         Container(
-                                                          width: 50,
+                                                          width: 60,
                                                           height: 40,
                                                           decoration: BoxDecoration(
                                                             color: Colors.white,
-                                                            borderRadius: BorderRadius.circular(10),
+                                                            borderRadius: BorderRadius.circular(30),
                                                           ),
                                                           child:  Center(child: Text(snapshot.data!.docs[index]["cartQuantity"].toString(), style: TextStyle(color: Colors.black, fontSize: 15),)),
                                                         ),
@@ -302,11 +305,11 @@ class _CartScreenState extends State<CartScreen> {
                 });
 
               },
-              child : const Text("Make the Order", style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold
-              ),),
+              child :  Text("Make the Order", style: GoogleFonts.poppins(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              )),
             );
           }
         ),

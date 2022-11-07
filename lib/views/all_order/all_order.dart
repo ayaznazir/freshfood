@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fresh_food/constants/app_constant.dart';
 import 'package:fresh_food/views/all_order/edit_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,6 +14,12 @@ class AllOrderScreen extends StatefulWidget {
 class _AllOrderScreenState extends State<AllOrderScreen> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.white, // navigation bar color
+      statusBarColor: Colors.white, // status bar color
+      statusBarIconBrightness: Brightness.dark, // status bar icons' color
+      systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icons' color
+    ));
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
@@ -28,7 +35,7 @@ class _AllOrderScreenState extends State<AllOrderScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                      Text("All Orders" , style: GoogleFonts.poppins(
-                        fontSize: 26,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold
                     )),
                     MaterialButton(onPressed: (){
@@ -61,7 +68,7 @@ class _AllOrderScreenState extends State<AllOrderScreen> {
                                 width: screenSize.width,
                                 height: screenSize.height * 0.54,
                                 decoration: BoxDecoration(
-                                    color: Colors.grey.shade300
+                                    color: Colors.grey.shade200
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(15.0),

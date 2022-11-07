@@ -44,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                        Row(
                          children:  [
                            Text("Profile" , style:  GoogleFonts.poppins(
-                               fontSize: 28,
+                               fontSize: 30,
                                fontWeight: FontWeight.bold
                            )),
                          ],
@@ -61,7 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                        ),
                        Container(
                          decoration: BoxDecoration(
-                           color: Colors.grey[300],
+                           color: Colors.grey[200],
                            borderRadius: BorderRadius.circular(10),
 
                          ),
@@ -75,6 +75,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                              hintStyle:  GoogleFonts.poppins(
                                fontSize: 16,
                              ),
+                             contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
 
                              enabledBorder: OutlineInputBorder(
                                  borderRadius: BorderRadius.circular(10),
@@ -98,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                        ),
                        Container(
                          decoration: BoxDecoration(
-                           color: Colors.grey[300],
+                           color: Colors.grey[200],
                            borderRadius: BorderRadius.circular(10),
 
                          ),
@@ -110,6 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                            ),
                            decoration: InputDecoration(
                              hintStyle: const TextStyle(color: Colors.black),
+                             contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
 
                              enabledBorder: OutlineInputBorder(
                                  borderRadius: BorderRadius.circular(10),
@@ -133,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                        ),
                        Container(
                          decoration: BoxDecoration(
-                           color: Colors.grey[300],
+                           color: Colors.grey[200],
                            borderRadius: BorderRadius.circular(10),
 
                          ),
@@ -145,6 +147,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                            ),
                            decoration: InputDecoration(
                              hintStyle:  GoogleFonts.poppins(fontSize: 16,),
+                             contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
 
                              enabledBorder: OutlineInputBorder(
                                  borderRadius: BorderRadius.circular(10),
@@ -168,7 +171,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                        ),
                        Container(
                          decoration: BoxDecoration(
-                           color: Colors.grey[300],
+                           color: Colors.grey[200],
                            borderRadius: BorderRadius.circular(10),
 
                          ),
@@ -180,8 +183,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                            ),
                            decoration: InputDecoration(
                              hintStyle: GoogleFonts.poppins(
-                  fontSize: 16,
-                  ),
+                             fontSize: 16,
+                              ),
+                             contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+
 
                              enabledBorder: OutlineInputBorder(
                                  borderRadius: BorderRadius.circular(10),

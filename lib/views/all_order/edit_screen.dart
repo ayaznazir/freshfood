@@ -54,7 +54,7 @@ class _EditScreenState extends State<EditScreen> {
                       width: 20,
                     ),
                      Text("Add / Edit", style: GoogleFonts.poppins(
-                        fontSize: 25,
+                        fontSize: 28,
                         fontWeight: FontWeight.bold
                     )),
                   ],

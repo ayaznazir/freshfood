@@ -35,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 Container(
                   width: screenSized.width,
-                  height: screenSized.height * 0.3,
+                  height: screenSized.height * 0.29,
                   child:   Center(
                     child: Text("Fresh Food" , style:GoogleFonts.poppins(
                       fontSize: 28,
@@ -63,7 +63,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           height: 10,
                         ),
                         Text("Sign Up" , style:GoogleFonts.poppins(
-                          fontSize: 25,
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
                         )),
                         const SizedBox(

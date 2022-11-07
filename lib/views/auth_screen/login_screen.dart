@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fresh_food/Service/app_services.dart';
 import 'package:fresh_food/views/auth_screen/admin_login.dart';
@@ -21,6 +22,12 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isLoading  = false;
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const  SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.white, // navigation bar color
+      statusBarColor: appColor, // status bar color
+      statusBarIconBrightness: Brightness.dark, // status bar icons' color
+      systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icons' color
+    ),);
     final screenSized = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: appColor,
@@ -58,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 10,
                         ),
                          Text("Log In"  , style: GoogleFonts.poppins(
-                            fontSize: 25,
+                            fontSize: 30,
                             fontWeight: FontWeight.bold,
                         )),
                         const SizedBox(

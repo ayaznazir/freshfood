@@ -19,6 +19,11 @@ class SelectMeals extends StatefulWidget {
 
 class _SelectMealsState extends State<SelectMeals> {
   String? _queryText = "";
+  bool selectedColor = true;
+  bool selectedColor1 = false;
+  bool selectedColor2 = false;
+  bool selectedColor3 = false;
+  bool selectedColor4 = false;
 
   void onSubmitted(String value) {
     setState(() {
@@ -35,8 +40,8 @@ class _SelectMealsState extends State<SelectMeals> {
             SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: ListView(
+                    physics: ScrollPhysics(),
                     children: [
                       const SizedBox(height: 5,),
 
@@ -50,7 +55,7 @@ class _SelectMealsState extends State<SelectMeals> {
                             width: 20,
                           ),
                            Text("Select Meals" , style:GoogleFonts.poppins(
-                             fontSize: 25,
+                             fontSize: 30,
                              fontWeight: FontWeight.bold,
                            )),
                         ],
@@ -58,16 +63,29 @@ class _SelectMealsState extends State<SelectMeals> {
                       const SizedBox(
                         height: 15,
                       ),
-                       Text("Select your 5 meals for this week", style:  GoogleFonts.poppins(
-                         color: Colors.grey.shade600,
-                         fontSize: 16
+                       Row(
+                         children: [
+                           Text("Select your ", style:  GoogleFonts.poppins(
+                             color: Colors.grey.shade600,
+                             fontSize: 16
 
-                       ),),
+                           ),),    Text(widget.meals.toString(), style:  GoogleFonts.poppins(
+                             color: Colors.grey.shade600,
+                             fontSize: 16
+
+                           ),),    Text(" meals for this week ", style:  GoogleFonts.poppins(
+                             color: Colors.grey.shade600,
+                             fontSize: 16
+
+                           ),),
+
+                         ],
+                       ),
 
                       const SizedBox(height: 15,),
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.grey.shade300,
+                          color: Colors.grey.shade200,
                           borderRadius: BorderRadius.circular(30),
 
                         ),
@@ -79,8 +97,10 @@ class _SelectMealsState extends State<SelectMeals> {
                           ),
                           decoration:  const InputDecoration(
                               hintText: "Search",
+
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.symmetric(vertical: 18, horizontal: 20),
+                              contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+
                               suffixIcon: Padding(
                                 padding: EdgeInsets.all(5.0),
                                 child: CircleAvatar(
@@ -95,78 +115,159 @@ class _SelectMealsState extends State<SelectMeals> {
                       const SizedBox(
                         height: 20,
                       ),
-                      SizedBox(
+                      Container(
                         height: 50,
-                        child: AppBar(
-                          elevation: 0.0,
-                          backgroundColor: Colors.white,
-                          bottom:   TabBar(
-                            labelColor: Colors.white,
-                            labelStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                            unselectedLabelColor: Colors.grey,
-                            indicator: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            tabs: const [
-                              Tab(
-                                text: "Pasta",
-                              ),
-                              Tab(
-                                text: "Breakfast",
-                              ),
+                        decoration: BoxDecoration(
 
-                              Tab(
-                                text: "Fish",
-                              ),
-
-                              Tab(
-                                text: "Porks",
-                              ),
-
-                            ],
-                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: TabBarView(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            // first tab bar view widget
-                            PastaScreen2(
-                              query: _queryText!,
-                              people: widget.people,
-                              meals: widget.meals,
-                              contact: widget.contact,
-                              address: widget.address,
+                            InkWell(
+                              onTap: (){
+                                setState(() {
+                                  selectedColor = true;
+                                  selectedColor1 = false;
+                                  selectedColor2 = false;
+                                  selectedColor3 = false;
+                                  selectedColor4 = false;
+                                });
+                              },
+                              child: selectedColor ? Container(
+                                width: 80,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color:  selectedColor ? Colors.black : Colors.grey,
+                                  borderRadius: BorderRadius.circular(13),
+                                ),
+                                child:  Center(child: Text("Pasta",style:GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white
+                                ),)),
+                              ) : Container(
+                                width: 80,
+                                height: 30,
+                                child:  Center(child: Text("Pasta", style:GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey.shade600
+                                ),)),
+                              ) ,
                             ),
 
-                            // second tab bar viiew widget
-                            Container(
-                              child: const Center(
-                                child: Text(
-                                  'Breakfast',
+                            InkWell(
+                              onTap: (){
+                                setState(() {
+                                  selectedColor1 = true;
+                                  selectedColor = false;
+                                  selectedColor2 = false;
+                                  selectedColor3 = false;
+                                  selectedColor4 = false;
+                                });
+                              },
+                              child: selectedColor1 ? Container(
+                                width: 90,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color:  selectedColor1 ? Colors.black : Colors.grey,
+                                  borderRadius: BorderRadius.circular(13),
                                 ),
-                              ),
+                                child:  Center(child: Text("Breakfast",style:GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white
+                                ),)),
+                              ) : Container(
+                                width: 80,
+                                height: 30,
+                                child:  Center(child: Text("Breakfast", style:GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey.shade600
+                                ),)),
+                              ) ,
                             ),
 
-                            Container(
-                              child: const Center(
-                                child: Text(
-                                  'Fish',
+                            InkWell(
+                              onTap: (){
+                                setState(() {
+                                  selectedColor2 = true;
+                                  selectedColor1 = false;
+                                  selectedColor = false;
+                                  selectedColor3 = false;
+                                  selectedColor4 = false;
+                                });
+                              },
+                              child: selectedColor2 ? Container(
+                                width: 65,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color:  selectedColor2 ? Colors.black : Colors.grey,
+                                  borderRadius: BorderRadius.circular(13),
                                 ),
-                              ),
+                                child:  Center(child: Text("Fish",style:GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white
+                                ),)),
+                              ) : Container(
+                                width: 80,
+                                height: 30,
+                                child:  Center(child: Text("Fish", style:GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey.shade600
+                                ),)),
+                              ) ,
                             ),
 
-                            Container(
-                              child: const Center(
-                                child: Text(
-                                  'Porks',
+                            InkWell(
+                              onTap: (){
+                                setState(() {
+                                  selectedColor3 = true;
+                                  selectedColor1 = false;
+                                  selectedColor2 = false;
+                                  selectedColor = false;
+                                  selectedColor4 = false;
+                                });
+                              },
+                              child: selectedColor3 ? Container(
+                                width: 65,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color:  selectedColor3 ? Colors.black : Colors.grey,
+                                  borderRadius: BorderRadius.circular(13),
                                 ),
-                              ),
+                                child:  Center(child: Text("Pork",style:GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white
+                                ),)),
+                              ) : Container(
+                                width: 80,
+                                height: 30,
+                                child:  Center(child: Text("Pork", style:GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.grey.shade600
+                                ),)),
+                              ) ,
                             ),
+
                           ],
                         ),
                       ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+
+                      selectedColor ?    PastaScreen2(
+                        query: _queryText!,
+                        people: widget.people,
+                        meals: widget.meals,
+                        contact: widget.contact,
+                        address: widget.address,
+                      ) : SizedBox(),
+                      selectedColor1 ? Center(child: Text("Breakfast" , style: GoogleFonts.poppins(),)) : SizedBox(),
+
+
+                      selectedColor2 ? Center(child: Text("Fish" , style: GoogleFonts.poppins(),)) : SizedBox(),
+
+                      selectedColor3 ? Center(child: Text("Pork" , style: GoogleFonts.poppins(),)) : SizedBox(),
+
                     ],
                   ),
                 )),

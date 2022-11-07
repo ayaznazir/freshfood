@@ -81,7 +81,7 @@ class _WeeklyPlanState extends State<WeeklyPlan> {
                 Row(
                   children: [
                      Text("Weekly Plan" , style:  GoogleFonts.poppins(
-                         fontSize: 26,
+                         fontSize: 30,
                          fontWeight: FontWeight.bold
                      )),
                   ],
@@ -131,12 +131,13 @@ class _WeeklyPlanState extends State<WeeklyPlan> {
                                                   height: screenSize.height * 0.17,
                                                   decoration:  BoxDecoration(
                                                       color: Colors.white,
+                                                      borderRadius: BorderRadius.circular(20),
                                                       image: DecorationImage(image: NetworkImage(snapshot.data!.docs[index]["cartImage"]),
                                                           fit: BoxFit.cover)
                                                   ),
                                                 ),
                                                 const SizedBox(
-                                                  width: 15,
+                                                  width: 10,
                                                 ),
                                                 Column(
                                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,12 +145,13 @@ class _WeeklyPlanState extends State<WeeklyPlan> {
                                                     const SizedBox(
                                                       height: 15,
                                                     ),
-                                                    Text(snapshot.data!.docs[index]["cartName"], style: TextStyle(
-                                                        color: Colors.black, fontWeight: FontWeight.bold,
+                                                    Text(snapshot.data!.docs[index]["cartName"], style:  GoogleFonts.poppins(
+                                                        fontWeight: FontWeight.bold,
+                                                        color: Colors.black,
                                                         fontSize: 20
-                                                    ),),
+                                                    )),
                                                     const SizedBox(
-                                                      height: 10,
+                                                      height: 5,
                                                     ),
                                                     Text(snapshot.data!.docs[index]["time"], style: TextStyle(color: Colors.grey, fontSize: 15),),
                                                     const SizedBox(
@@ -178,11 +180,11 @@ class _WeeklyPlanState extends State<WeeklyPlan> {
                                                           width: 5,
                                                         ),
                                                         Container(
-                                                          width: 50,
+                                                          width: 60,
                                                           height: 40,
                                                           decoration: BoxDecoration(
                                                             color: Colors.white,
-                                                            borderRadius: BorderRadius.circular(10),
+                                                            borderRadius: BorderRadius.circular(20),
                                                           ),
                                                           child:  Center(child: Text(snapshot.data!.docs[index]["cartQuantity"].toString(), style: TextStyle(color: Colors.black, fontSize: 15),)),
                                                         ),

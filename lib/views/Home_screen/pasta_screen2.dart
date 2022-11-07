@@ -30,8 +30,7 @@ class _PastaScreen2State extends State<PastaScreen2> {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      body: SafeArea(
+    return SafeArea(
           child: widget.query == "" ? StreamBuilder(
             stream: FirebaseFirestore.instance.collection("recipeData").snapshots(),
             builder: (context , AsyncSnapshot<QuerySnapshot> snapshot){
@@ -43,12 +42,11 @@ class _PastaScreen2State extends State<PastaScreen2> {
                   height: screenSize.height * 0.5,
                   child: GridView.builder(
                       shrinkWrap: true,
-                      physics: ScrollPhysics(),
                       itemCount: snapshot.data!.docs.length,
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           childAspectRatio: 0.7,
-                          mainAxisSpacing: 5,
-                          crossAxisSpacing: 5,
+                          mainAxisSpacing: 15,
+                          crossAxisSpacing: 15,
                           crossAxisCount: 2),
                       itemBuilder: (context , index) {
                         DocumentSnapshot document = snapshot.data!.docs[index];
@@ -78,7 +76,7 @@ class _PastaScreen2State extends State<PastaScreen2> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Container(
                                     width: screenSize.width * 0.4,
                                     height: screenSize.width * 0.3,
@@ -97,16 +95,17 @@ class _PastaScreen2State extends State<PastaScreen2> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Center(
-                                        child: Text(document["name"], style: const TextStyle(
-                                            color: Colors.black , fontSize: 15, fontWeight: FontWeight.bold),),
+                                        child: Text(document["name"], style: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 18
+                                        )),
                                       ),
-                                      const SizedBox(
-                                        height: 5,
-                                      ),
+
 
                                       Center(
                                         child: Text(document["time"], style: const TextStyle(
-                                            color: Colors.grey , fontSize: 15, fontWeight: FontWeight.bold),),
+                                            color: Colors.grey , fontSize: 15,),),
                                       ),
                                       const SizedBox(
                                         height: 5,
@@ -152,13 +151,13 @@ class _PastaScreen2State extends State<PastaScreen2> {
                                               }
                                             },
                                             child: Container(
-                                              width: 40,
-                                              height: 40,
+                                              width: 35,
+                                              height: 35,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius: BorderRadius.circular(20),
                                               ),
-                                              child: const Center(child: Text("-", style: TextStyle(color: Colors.black, fontSize: 30),)),
+                                              child: const Center(child: Text("-", style: TextStyle(color: Colors.black, fontSize: 25),)),
                                             ),
                                           ),
                                           Container(
@@ -166,11 +165,12 @@ class _PastaScreen2State extends State<PastaScreen2> {
                                             height: 40,
                                             decoration: BoxDecoration(
                                               color: Colors.white,
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius: BorderRadius.circular(40),
                                             ),
                                             child:  Center(child:Text(document['count'].toString(), style: TextStyle(color: Colors.black, fontSize: 15),)
                                             ),
                                           ),
+
                                           InkWell(
                                             onTap: (){
                                               logEvent("recipeData", document.id,);
@@ -196,13 +196,13 @@ class _PastaScreen2State extends State<PastaScreen2> {
                                               );
                                             },
                                             child: Container(
-                                              width: 40,
-                                              height: 40,
+                                              width: 35,
+                                              height: 35,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius: BorderRadius.circular(20),
                                               ),
-                                              child: const Center(child: Text("+", style: TextStyle(color: Colors.black, fontSize: 25),)),
+                                              child: const Center(child: Text("+", style: TextStyle(color: Colors.black, fontSize: 20),)),
                                             ),
                                           ),
 
@@ -269,7 +269,7 @@ class _PastaScreen2State extends State<PastaScreen2> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(13.0),
                                   child: Container(
                                     width: screenSize.width * 0.4,
                                     height: screenSize.width * 0.3,
@@ -288,16 +288,17 @@ class _PastaScreen2State extends State<PastaScreen2> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Center(
-                                        child: Text(document["name"], style: const TextStyle(
-                                            color: Colors.black , fontSize: 15, fontWeight: FontWeight.bold),),
+                                        child: Text(document["name"], style:  GoogleFonts.poppins(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black,
+                                            fontSize: 18
+                                        )),
                                       ),
-                                      const SizedBox(
-                                        height: 5,
-                                      ),
+
 
                                       Center(
                                         child: Text(document["time"], style: const TextStyle(
-                                            color: Colors.black , fontSize: 15, fontWeight: FontWeight.bold),),
+                                            color: Colors.grey , fontSize: 15),),
                                       ),
                                       const SizedBox(
                                         height: 5,
@@ -343,15 +344,16 @@ class _PastaScreen2State extends State<PastaScreen2> {
                                               }
                                             },
                                             child: Container(
-                                              width: 40,
-                                              height: 40,
+                                              width: 35,
+                                              height: 35,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius: BorderRadius.circular(20),
                                               ),
                                               child:  Center(child: Text("-", style:  GoogleFonts.poppins(
                                                 color: Colors.grey.shade600,
-                                                fontStyle: FontStyle.normal
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18
 
                                               ), )),
                                             ),
@@ -361,7 +363,7 @@ class _PastaScreen2State extends State<PastaScreen2> {
                                             height: 40,
                                             decoration: BoxDecoration(
                                               color: Colors.white,
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius: BorderRadius.circular(30),
                                             ),
                                             child:  Center(child:Text(document['count'].toString(), style: TextStyle(color: Colors.black, fontSize: 15),)
                                             ),
@@ -391,8 +393,8 @@ class _PastaScreen2State extends State<PastaScreen2> {
                                               );
                                             },
                                             child: Container(
-                                              width: 40,
-                                              height: 40,
+                                              width: 35,
+                                              height: 35,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 borderRadius: BorderRadius.circular(20),
@@ -418,7 +420,6 @@ class _PastaScreen2State extends State<PastaScreen2> {
               }
             },
           )
-      ),
     );
   }
   logEvent(String coll , String id,) async {

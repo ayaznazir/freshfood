@@ -55,7 +55,7 @@ class _SelectPlanScreenState extends State<SelectPlanScreen> {
                       width: 20,
                     ),
                      Text("Select Plan" , style: GoogleFonts.poppins(
-                      fontSize: 25,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                     )),
                   ],
@@ -408,7 +408,10 @@ class _SelectPlanScreenState extends State<SelectPlanScreen> {
                     style: GoogleFonts.poppins(
                       color: Colors.grey.shade600,
                   ),
+
                     decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(color: Colors.grey.shade200)
@@ -444,6 +447,8 @@ class _SelectPlanScreenState extends State<SelectPlanScreen> {
 
                     ),
                     decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
+
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(color: Colors.grey.shade200)
@@ -479,7 +484,7 @@ class _SelectPlanScreenState extends State<SelectPlanScreen> {
                     fontSize: 15
                 ),),
 
-                const SizedBox(height: 10,),
+                const SizedBox(height: 20,),
                 MaterialButton(
                   height: 50,
                   minWidth: 320,
@@ -493,20 +498,22 @@ class _SelectPlanScreenState extends State<SelectPlanScreen> {
                     }else if(contactController.text.isEmpty){
                       Fluttertoast.showToast(msg: "Please enter phone number");
                     }else {
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  SelectMeals(
+                          people: peepleNum,
+                          meals: mealNum,
+                          address: addressController.text,
+                          contact: contactController.text,
+                        )));
+                      });
 
-                      Navigator.push(context, MaterialPageRoute(builder: (context) =>  SelectMeals(
-                        people: peepleNum,
-                        meals: mealNum,
-                        address: addressController.text,
-                        contact: contactController.text,
-                      )));
                     }
                   },
-                  child :const Text("Continue", style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold
-                  ),),
+                  child : Text("Continue", style:  GoogleFonts.poppins(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  )),
                 ),
               ],
             ),
