@@ -317,6 +317,9 @@ class _CartScreenState extends State<CartScreen> {
     );
   }
   Random random = Random();
+
+
+
   getUsers() async {
     final snapshot = await FirebaseFirestore.instance.collection("Cart").doc("").collection("shhhwd").get();
 
@@ -325,6 +328,10 @@ class _CartScreenState extends State<CartScreen> {
     map.forEach((key, value) {
      // list.add(value);
     });
+
+
+
+
   }
 
   logEvent(String coll , String id,) async {
